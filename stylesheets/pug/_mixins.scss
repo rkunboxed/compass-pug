@@ -1,0 +1,162 @@
+/* Pug - Core Mixins */
+
+/**
+ * Quickly apply appropriate styles to an element for having a dark background.
+ *
+ * This mixin will adjust bg, text and link color.
+ *
+ * @param string $bg-color
+ * @param string $text-color
+ * @param string $link-default-color
+ * @param string $link-visited-color
+ * @param string $link-hover-color
+ */
+@mixin pug-dark-bg-with-light-text(
+		$bg-color: $pug-bg-color-dark,
+		$text-color: $pug-text-color-light,
+		$link-default-color: $pug-link-default-color-light,
+		$link-visited-color: $pug-link-visited-color-light,
+		$link-hover-color: $pug-link-hover-color-light
+	) {
+	background-color: $bg-color;
+	color: $text-color;
+	a:link {
+		color: $link-default-color;
+	}
+	a:visited {
+		color: $link-visited-color;
+	}
+	a:hover,
+	a:active,
+	a:focus {
+		color: $link-hover-color;
+	}
+}
+
+/**
+ * Quickly apply appropriate styles to an element for having a light background.
+ *
+ * This mixin will adjust bg, text and link color.
+ *
+ * @param string $bg-color
+ * @param string $text-color
+ * @param string $link-default-color
+ * @param string $link-visited-color
+ * @param string $link-hover-color
+ */
+@mixin pug-light-bg-with-dark-text(
+		$bg-color: $pug-bg-color-light,
+		$text-color: $pug-text-color-dark,
+		$link-default-color: $pug-link-default-color-dark,
+		$link-visited-color: $pug-link-visited-color-dark,
+		$link-hover-color: $pug-link-hover-color-dark
+	) {
+	background-color: $bg-color;
+	color: $text-color;
+	a:link {
+		color: $link-default-color;
+	}
+	a:visited {
+		color: $link-visited-color;
+	}
+	a:hover,
+	a:active,
+	a:focus {
+		color: $link-hover-color;
+	}
+}
+
+/**
+ * Micro-clearfix.
+ *
+ * @see http://nicolasgallagher.com/micro-clearfix-hack/
+ */
+@mixin pug-micro-clearfix() {
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+	*zoom: 1; // IE6/7:  Include this rule to trigger hasLayout and contain floats.
+}
+
+/**
+ * Cross-browser default placeholder text color.
+ *
+ * Don't use this within a selector. Just drop it in at the top level of your sass code.
+ *
+ * @param string $color
+ * @see http://css-tricks.com/snippets/css/style-placeholder-text/
+ */
+@mixin pug-placeholder-color($color) {
+	::-webkit-input-placeholder {
+		color: $color;
+	}
+	:-moz-placeholder { /* Firefox 18- */
+		color: $color;
+	}
+	::-moz-placeholder {  /* Firefox 19+ */
+		color: $color;
+	}
+	:-ms-input-placeholder {
+		color: $color;
+	}
+}
+
+/**
+ * Vendor-prefixed tab sizing. Use in elements such as pre.
+ *
+ * @param number $size
+ */
+@mixin pug-tab-size($size: $pug-tab-size) {
+	tab-size: $size;
+	-moz-tab-size: $size;
+	-o-tab-size: $size;
+	white-space: pre-wrap;
+}
+
+/**
+ * Apply to an element to make it accessible only to screen readers. (adapted from Bootstrap 3)
+ *
+ * @see pug-sr-only-focusable()
+ * @see http://getbootstrap.com/css/#helper-classes-screen-readers
+ */
+@mixin pug-sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0;
+}
+
+/**
+ * Applies sr-only and shows the element again when it's focused. (adapted from Bootstrap 3)
+ *
+ * @param boolean $include-sr-only
+ *  Whether to automatically the sr-only() mixin, which is required for this to work (you would
+ *  only set this to false if you had already applied sr-only() to an element receiving
+ *  sr-only-focusable).
+ *
+ * @see pug-sr-only()
+ * @see http://getbootstrap.com/css/#helper-classes-screen-readers
+ */
+@mixin pug-sr-only-focusable($include-sr-only: true) {
+	@if $include-sr-only == true {
+		@include sr-only;
+	}
+	&:active,
+	&:focus {
+		position: static;
+		width: auto;
+		height: auto;
+		margin: 0;
+		overflow: visible;
+		clip: auto;
+	}
+}

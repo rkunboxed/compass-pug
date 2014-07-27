@@ -1,0 +1,35 @@
+/**
+ * Pug: Default configuration vars and imports.
+ */
+
+// Default values
+// ---------------------------------------------------------------------------
+// Colors
+$pug-bg-color-light: #FFF !default;
+$pug-bg-color-dark: #202020 !default;
+
+// Darkish text colors used on light backgrounds.
+$pug-text-color-dark: #202020 !default;
+$pug-link-default-color-dark: #4183c4 !default;
+$pug-link-visited-color-dark: $pug-link-default-color-dark !default;
+$pug-link-hover-color-dark: lighten($pug-link-default-color-dark, 20%) !default;
+
+// Lightish text colors used on dark backgrounds.
+$pug-text-color-light: #FEFEFE !default;
+$pug-link-default-color-light: #9DC7F5 !default;
+$pug-link-visited-color-light: $pug-link-default-color-light !default;
+$pug-link-hover-color-light: lighten($pug-link-default-color-light, 20%) !default;
+
+// Tab size
+$pug-tab-size: 2 !default;
+
+// Vars related to vertical-rhythm.
+$pug-vr-base-font-size: 16px !default;
+$pug-vr-vertical-unit: 24px !default;
+$pug-vr-preferred-division: 0.5 !default;
+$pug-vr-line-height-minimum-difference-proportion: 0.25 !default;
+
+// Imports
+// ---------------------------------------------------------------------------
+@import "pug/functions";
+@import "pug/mixins";

@@ -1,0 +1,129 @@
+/* Pug - Core Functions */
+
+/**
+ * Calculate an appropriate line-height value that maintains vertical rhythm.
+ *
+ * Note that $font-size and $vertical-unit must use the same unit of measurement (px, rem, em, etc).
+ *
+ * @param string $font-size
+ *  Font-size to use for generating the line-height result. Must have same unit of measurement as $vertical-unit.
+ * @param string $vertical-unit
+ *
+ * @param number $division
+ *  Represents how $vertical-unit will be divided. Usually this should be 1, 0.5 or 0.25.
+ * @param number $minimum-difference-proportion
+ *  Minimum acceptable proportional diff.
+ */
+@function pug-calculate-line-height(
+		$font-size: $pug-vr-base-font-size,
+		$vertical-unit: $pug-vr-vertical-unit,
+		$division: $pug-vr-division,
+		$minimum-difference-proportion: $pug-vr-line-height-minimum-difference-proportion
+	) {
+
+	// Make sure the font size and line height use the same unit of measurement.
+	@if pug-units-match($font-size, $vertical-unit) == false {
+		@warn "Incompatible font-size and vertical-unit arguments [#{$_font-size-unit} and #{$_vertical-unit-unit}]";
+		@return false;
+	}
+
+	// If the font size is less than the VU and the diff is greater than the $minimum-difference-proportion,
+	// just return the submitted VU.
+	@if $font-size < ($vertical-unit * $minimum-difference-proportion) {
+		@return $vertical-unit;
+	}
+	// Otherwise we'll need to calculate a proper value.
+	@else {
+		// Our minimum unit of height.
+		$m: $vertical-unit*$division;
+		// The line-height var we'll be calculating, starting with $vertical-unit as the min.
+		$lh: $vertical-unit;
+		// Add $m to it until we get a suitable value.
+		@while $font-size > $lh - ($lh*$minimum-difference-proportion) {
+			$lh: $lh+$m;
+		}
+		@return $lh;
+	}
+}
+
+/**
+ * Round a size up to the nearest factor of a vertical unit (or of a sub-unit of that vertical unit).
+ * Parameters must use the same unit of measurement (rem, px, etc).
+ *
+ * @param string $original-size
+ * @param string $vertical-unit
+ * @param number $division
+ *  If you want to allow factors of a division of $vertical-unit, use a decimal value here (like 0.5).
+ */
+@function pug-round-up-to-nearest-vertical-unit(
+		$original-size,
+		$vertical-unit: $pug-vr-vertical-unit,
+		$division: $pug-vr-preferred-division
+	) {
+	@if pug-units-match($original-size, $vertical-unit) == false {
+		@warn "Incompatible arguments passed to PROJECT-round-up-to-nearest-vertical-unit()";
+		@return false;
+	}
+	@else {
+		// If size is less than or equal to VU, return VU.
+		@if $original-size <= $vertical-unit {
+			@return $vertical-unit;
+		}
+		// Otherwise generate an appropriate value.
+		@else {
+			// Our minimum unit of height.
+			$m: $vertical-unit*$division;
+			// The line-height var we'll be calculating, starting with $vertical-unit as the min.
+			$new-height: $vertical-unit;
+			// Add $m to it until we get a suitable value.
+			@while $original-size > $new-height {
+				$new-height: $new-height+$m;
+			}
+			@return $new-height;
+		}
+	}
+}
+
+/**
+ * Strip unit of measurement from a numeric value.
+ * For example, "10px" becomes "10".
+ *
+ * From http://stackoverflow.com/a/12335841
+ *
+ * @param string $number
+ * @return number
+ */
+@function pug-strip-units($number) {
+	$new: $number / ($number * 0 + 1);
+	@return $new;
+}
+
+/**
+ * Determine whether two or more values use the same unit of measurement.
+ *
+ * Similar to the Sass comparable() function but requires exact match
+ * (such as mm and mm, but not cm and mm).
+ *
+ * @param string $v1 The first value to compare.
+ * @param [...] $others One or more additional values to compare.
+ * @return boolean
+ */
+@function pug-units-match($v1, $others...) {
+	/* Example usages:
+		@debug pug-units-match(1px, 4px);           // true
+		@debug pug-units-match(1px, 4rem);          // false
+		@debug pug-units-match(1px, 4px, 12px);     // true
+		@debug pug-units-match(1rem, 4rem, 1.2rem); // true
+		@debug pug-units-match(1rem, 4px, 1.2rem);  // false
+	*/
+	$v1-unit: unit($v1);
+	$return: true;
+	@for $i from 1 through length($others) {
+		$cur-unit: unit(nth($others, $i));
+		@if $cur-unit != $v1-unit {
+			$return: false;
+		}
+	}
+	@return $return;
+}
+
