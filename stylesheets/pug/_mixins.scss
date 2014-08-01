@@ -1,6 +1,34 @@
 /* Pug - Core Mixins */
 
 /**
+ * Align left.
+ */
+@mixin alignleft {
+	display: inline;
+	float: left;
+	margin-right: $pug-hr-horizontal-unit;
+}
+
+/**
+ * Align right.
+ */
+@mixin alignright {
+	display: inline;
+	float: right;
+	margin-left: $pug-hr-horizontal-unit;
+}
+
+/**
+ * Align center.
+ */
+@mixin aligncenter {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+}
+
+
+/**
  * Clearfix (alias for pug-micro-clearfix()).
  *
  * @see http://nicolasgallagher.com/micro-clearfix-hack/

@@ -29,6 +29,9 @@ $pug-vr-vertical-unit: 24px !default;
 $pug-vr-preferred-division: 0.5 !default;
 $pug-vr-line-height-minimum-difference-proportion: 0.25 !default;
 
+// Vars related to horizontal rhythm (gridding).
+$pug-hr-horizontal-unit: 10px !default;
+
 // Imports
 // ---------------------------------------------------------------------------
 @import "pug/functions";
