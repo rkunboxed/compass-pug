@@ -1,6 +1,15 @@
 /* Pug - Core Mixins */
 
 /**
+ * Clearfix (alias for pug-micro-clearfix()).
+ *
+ * @see http://nicolasgallagher.com/micro-clearfix-hack/
+ */
+@mixin pug-clearfix() {
+	@include pug-micro-clearfix();
+}
+
+/**
  * Quickly apply appropriate styles to an element for having a dark background.
  *
  * This mixin will adjust bg, text and link color.
