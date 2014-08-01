@@ -31,7 +31,7 @@
 /**
  * Clearfix (alias for pug-micro-clearfix()).
  *
- * @see http://nicolasgallagher.com/micro-clearfix-hack/
+ * @see pug-micro-clearfix()
  */
 @mixin pug-clearfix() {
 	@include pug-micro-clearfix();
