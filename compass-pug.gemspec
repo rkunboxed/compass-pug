@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   # Release Specific Information
-  s.version = "0.0.4"
-  s.date = "2014-07-27"
+  s.version = "0.0.5"
+  s.date = "2014-08-06"
 
   # Gem Details
   s.name = "compass-pug"
@@ -18,6 +18,5 @@ Gem::Specification.new do |s|
 
   # Gem Bookkeeping
   s.rubygems_version = %q{1.3.6}
-  s.add_dependency("sass", ["~> 3.3"])
-  s.add_dependency("compass", [">= 1.0.0.alpha.21"])
+  s.add_dependency("compass", [">= 1.0.0.rc.1"])
 end

@@ -1,9 +1,18 @@
 /* Pug - Core Mixins */
 
 /**
+ * Align center.
+ */
+@mixin pug-aligncenter {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+}
+
+/**
  * Align left.
  */
-@mixin alignleft {
+@mixin pug-alignleft {
 	display: inline;
 	float: left;
 	margin-right: $pug-hr-horizontal-unit;
@@ -12,21 +21,11 @@
 /**
  * Align right.
  */
-@mixin alignright {
+@mixin pug-alignright {
 	display: inline;
 	float: right;
 	margin-left: $pug-hr-horizontal-unit;
 }
-
-/**
- * Align center.
- */
-@mixin aligncenter {
-	clear: both;
-	display: block;
-	margin: 0 auto;
-}
-
 
 /**
  * Clearfix (alias for pug-micro-clearfix()).
