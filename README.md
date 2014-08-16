@@ -1,10 +1,10 @@
 # Pug for Compass
 
-A collection of Sass functions and mixins for use in Compass projects. It currently requires Compass `>= 1.0.0.rc.1`.
+Pug is a collection of mixins and functions for use in Sass/Compass projects. It provides various helpers and utilities, some of which are adapted from CSS classes included in various HTML starter packages like Bootstrap and HTML5 Boilerplate. It aims to increase consistency and productivity in front-end development, as well as to help get non-semantic utility classes out of markup.
 
 ## Installation
 
-Pug is distributed as a Ruby gem called `compass-pug`. You can install it with the `gem` command:
+Pug is distributed as a Ruby gem called `compass-pug` and requires Compass `1.0+`. You can install it (and its dependencies) with the `gem` command:
 
     gem install compass-pug
 
@@ -29,6 +29,7 @@ For complete details, including function/mixin parameters, view the `stylesheets
 * `pug-columns-3()`: Apply to items that should be displayed in a 3-column grid.
 * `pug-columns-4()`: Apply to items that should be displayed in a 4-column grid.
 * `pug-dark-bg-with-light-text()`: Quickly apply bg, text and link colors to a selector appropriate for a dark background with light text.
+* `pug-image-replacement()`: [Adapted from HTML5 Boilerplate's](http://html5boilerplate.com/) `.ir` class.
 * `pug-light-bg-with-dark-text()`: Quickly apply bg, text and link colors to a selector appropriate for a light background with dark text.
 * `pug-micro-clearfix()`: [Provides Nicolas Gallagher's Micro Clearfix](http://nicolasgallagher.com/micro-clearfix-hack/).
 * `pug-placeholder-color()`: Generates cross-browser CSS (with selectors) for setting the color of input field placeholder text. Via [CSS Tricks](http://css-tricks.com/snippets/css/style-placeholder-text/).
@@ -47,6 +48,7 @@ For complete details, including function/mixin parameters, view the `stylesheets
 
 Below are the variables and their default values defined in `stylesheets/_pug.scss`. You can override any or all of these in your code by declaring them yourself *before* you import Pug (omit the `!default` flag shown on the definitions below if you do that).
 
+    // Colors
     $pug-bg-color-light: #FFF !default;
     $pug-bg-color-dark: #202020 !default;
 
@@ -73,7 +75,6 @@ Below are the variables and their default values defined in `stylesheets/_pug.sc
 
     // Vars related to horizontal rhythm (gridding).
     $pug-hr-horizontal-unit: 10px !default;
-
 
 ## Development
 

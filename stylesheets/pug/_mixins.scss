@@ -74,6 +74,8 @@
  * @param string $link-default-color
  * @param string $link-visited-color
  * @param string $link-hover-color
+ *
+ * @see pug-dark-bg-with-dark-text
  */
 @mixin pug-dark-bg-with-light-text(
 		$bg-color: $pug-bg-color-dark,
@@ -98,6 +100,25 @@
 }
 
 /**
+ * Image replacement
+ *
+ * Adapted from HTML5 Boilerplate's .ir class.
+ */
+@mixin pug-image-replacement {
+	background-color: transparent;
+	border: 0;
+	overflow: hidden;
+	/* IE 6/7 fallback */
+	*text-indent: -9999px;
+	&:before {
+		content: "";
+		display: block;
+		height: 150%;
+		width: 0;
+	}
+}
+
+/**
  * Quickly apply appropriate styles to an element for having a light background.
  *
  * This mixin will adjust bg, text and link color.
@@ -107,6 +128,8 @@
  * @param string $link-default-color
  * @param string $link-visited-color
  * @param string $link-hover-color
+ *
+ * @see pug-dark-bg-with-light-text
  */
 @mixin pug-light-bg-with-dark-text(
 		$bg-color: $pug-bg-color-light,
