@@ -37,34 +37,6 @@
 }
 
 /**
- * Apply to items that should be displayed in a 3-column grid.
- */
-@mixin pug-columns-3 {
-	float: left;
-	margin-right: 1.83%;
-	max-width: 385px;
-	position: relative;
-	width: 32.08%;
-	&:nth-of-type(3n) {
-		margin-right: 0;
-	}
-}
-
-/**
- * Apply to items that should be displayed in a 4-column grid.
- */
-@mixin pug-columns-4 {
-	float: left;
-	margin-right: 1.08%;
-	max-width: 290px;
-	position: relative;
-	width: 24.16%;
-	&:nth-of-type(4n) {
-		margin-right: 0;
-	}
-}
-
-/**
  * Quickly apply appropriate styles to an element for having a dark background.
  *
  * This mixin will adjust bg, text and link color.

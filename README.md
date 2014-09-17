@@ -26,8 +26,6 @@ For complete details, including function/mixin parameters, view the `stylesheets
 * `pug-alignleft()`: Sets `display:inline`, `float:left` and applies some right margin based on the configured horizontal unit.
 * `pug-alignright()`: Sets `display:inline`, `float:right` and applies some left margin based on the configured horizontal unit.
 * `pug-clearfix()`: Clearfix. Alias for `pug-micro-clearfix()`.
-* `pug-columns-3()`: Apply to items that should be displayed in a 3-column grid.
-* `pug-columns-4()`: Apply to items that should be displayed in a 4-column grid.
 * `pug-dark-bg-with-light-text()`: Quickly apply bg, text and link colors to a selector appropriate for a dark background with light text.
 * `pug-image-replacement()`: [Adapted from HTML5 Boilerplate's](http://html5boilerplate.com/) `.ir` class.
 * `pug-light-bg-with-dark-text()`: Quickly apply bg, text and link colors to a selector appropriate for a light background with dark text.

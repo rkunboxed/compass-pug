@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   # Release Specific Information
-  s.version = "0.0.5.1"
-  s.date = "2014-08-16"
+  s.version = "0.1.0"
+  s.date = "2014-09-17"
 
   # Gem Details
   s.name = "compass-pug"
