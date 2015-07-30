@@ -32,8 +32,8 @@ For complete details, including function/mixin parameters, view the `stylesheets
 * `pug-micro-clearfix()`: [Provides Nicolas Gallagher's Micro Clearfix](http://nicolasgallagher.com/micro-clearfix-hack/).
 * `pug-placeholder-color()`: Generates cross-browser CSS (with selectors) for setting the color of input field placeholder text. Via [CSS Tricks](http://css-tricks.com/snippets/css/style-placeholder-text/).
 * `pug-tab-size()`: Vendor-prefixed tab sizing. Use with elements such as `pre`.
-* `pug-sr-only()`: Apply to an element to make it accessible only to screen readers. [Adapted from Bootstrap 3](http://getbootstrap.com/css/#helper-classes-screen-readers).
-* `pug-sr-only-focusable()`: Applies (optionally, and by default) `pug-sr-only()` and shows the element again when it's focused. [Adapted from Bootstrap 3](http://getbootstrap.com/css/#helper-classes-screen-readers).
+* `pug-sr-only()`: Apply to an element to make it accessible only to screen readers. Optionally include `$focusable:true` to allow the element to be focusable when navigated to via the keyboard. [Adapted from Bootstrap 3](http://getbootstrap.com/css/#helper-classes-screen-readers).
+* `pug-sr-only-focusable()`: *DEPRECATED (use `pug-sr-only($focusable:true).` instead)* Applies (optionally, and by default) `pug-sr-only()` and shows the element again when it's focused. [Adapted from Bootstrap 3](http://getbootstrap.com/css/#helper-classes-screen-readers).
 
 ### Sass Functions
 
