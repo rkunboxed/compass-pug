@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   # Release Specific Information
-  s.version = "0.1.1"
+  s.version = "0.1.2"
   s.date = "2015-07-30"
 
   # Gem Details
@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.summary = %q{A collection of mixins and functions for use in Sass/Compass projects.}
   s.description = %q{Pug is a collection of mixins and functions for use in Sass/Compass projects. It provides various helpers and utilities, some of which are adapted from CSS classes included in various HTML starter packages like Bootstrap and HTML5 Boilerplate. It aims to increase consistency and productivity in front-end development, as well as to help get non-semantic utility classes out of markup.}
   s.email = "ak@kamm.co"
-  s.homepage = "https://github.com/fatleaf/compass-pug"
+  s.homepage = "https://github.com/andrewkamm/compass-pug"
 
   # Gem Files
   s.files = %w(README.md)
